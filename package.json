@@ -1,0 +1,18 @@
+{
+    "name": "notes",
+    "author": "emilywithoutorgans",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "watch": "nodemon --watch markdown --ext md build.js",
+        "build": "node build.js",
+        "start": "sirv dist -D -H -p 3000"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.9",
+        "sirv-cli": "^3.0.0"
+    },
+    "dependencies": {
+        "marked": "^15.0.4"
+    }
+}
