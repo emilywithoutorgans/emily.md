@@ -4,7 +4,7 @@
     "license": "MIT",
     "type": "module",
     "scripts": {
-        "watch": "nodemon --watch markdown --ext md build.js",
+        "watch": "nodemon --watch markdown --watch build.js --watch style.css --ext md build.js",
         "build": "node build.js",
         "start": "sirv dist -D -H -p 3000"
     },
@@ -13,6 +13,8 @@
         "sirv-cli": "^3.0.0"
     },
     "dependencies": {
-        "marked": "^15.0.4"
+        "highlight.js": "^11.11.1",
+        "marked": "^15.0.4",
+        "marked-highlight": "^2.2.1"
     }
 }
