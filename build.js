@@ -4,6 +4,7 @@ import { Marked } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
 import { execSync } from "child_process";
+import math from "./math.js"
 
 const marked = new Marked(
     markedHighlight({
@@ -13,7 +14,8 @@ const marked = new Marked(
             const language = hljs.getLanguage(lang) ? lang : "plaintext";
             return hljs.highlight(code, { language }).value;
         }
-    })
+    }),
+    math
 );
 
 const markdownDir = path.resolve("markdown");

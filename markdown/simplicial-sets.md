@@ -135,8 +135,8 @@ With every simplex $[n]$ there is an associated set $B_n$ of $n$-simplicies, and
 
 $$
 \begin{CD}
-[n] @>{f}>> [m] \\
-@. @. \\
+[n] @>{f}>> [m] 
+@. @. 
 B_n @<<{B(f)}< B_m
 \end{CD}
 $$
