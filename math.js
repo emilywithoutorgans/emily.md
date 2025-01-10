@@ -3,6 +3,8 @@
 const inlineRule = /^(\${1,2})(?!\$)((?:\\.|[^\\\n])*?(?:\\.|[^\\\n\$]))\1/;
 const blockRule = /^(\${1,2})\n((?:\\[^]|[^\\])+?)\n\1(?:\n|$)/;
 
+const renderer = token => token.displayMode ? `$$\n${token.text}\n$$` : `$${token.text}$`;
+
 const inlineMath = {
     name: "inlineMath",
     level: "inline",
@@ -26,7 +28,7 @@ const inlineMath = {
             indexSrc = indexSrc.substring(index + 1).replace(/^\$+/, "");
         }
     },
-    tokenizer(src, tokens) {
+    tokenizer(src) {
         const match = src.match(inlineRule);
         if (match) {
             return {
@@ -37,13 +39,13 @@ const inlineMath = {
             };
         }
     },
-    renderer: n => `$${n.text}$`,
+    renderer
 };
 
 const blockMath = {
     name: "blockMath",
     level: "block",
-    tokenizer(src, tokens) {
+    tokenizer(src) {
         const match = src.match(blockRule);
         if (match) {
             return {
@@ -54,7 +56,7 @@ const blockMath = {
             };
         }
     },
-    renderer: n => `$$\n${n.text}\n$$`,
+    renderer
 };
 
 

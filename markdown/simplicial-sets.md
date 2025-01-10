@@ -1,117 +1,42 @@
 # simplicial sets
 
-Source: <https://emilyriehl.github.io/files/ssets.pdf>
+An **$n$-simplex** $[n]$ is a finite partial order 
 
-## Review
+$$ 0 \longrightarrow 1 \longrightarrow 2 \longrightarrow \ldots \longrightarrow n $$
 
-I omitted some kind parameters for clarity. Hope free variables can be inferred okay
+(composites omitted)
 
-### Set
+for $n \geq 0$.
 
-A **set** is a proof irrelevant type (all proofs are identical)
+$[0]$ consists of just a $0$.
 
-```ts
-type Set = A: * & {
-    trunc: p, q: (x = y) -> p = q
-}
-```
+A functor $f\colon [n] \to [m]$ between simplices is called an **order-preserving map**.
 
-### Category
+For example, a functor $f\colon [1] \to [2]$ describes one way to fit the category
 
-A **category** is a type of objects, a set of morphisms, composition, unitality, associativity
+$$ 0 \longrightarrow 1 $$
 
-```ts
-type Category = ℂ: * & {
-    Hom: X: ℂ -> Y: ℂ -> Set,
-    id: X: ℂ -> Hom(X, X),
-    *: Hom(B, C) -> Hom(A, B) -> Hom(A, C),
-    uniL: f: Hom(A, B) -> f = id(B) * f,
-    uniR: f: Hom(A, B) -> f = f * id(A),
-    assoc: f: Hom(A, B) -> g: Hom(B, C) -> h: Hom(C, D) -> h * (g * f) = (h * g) * f
-}
-```
+into
 
-### Functor
+$$
+\begin{array}{c}
+0&\rightarrow&1\\
+&\searrow&\downarrow\\
+&&2
+\end{array}
+$$
 
-A **functor** is a mapping `F` of objects (of a category) into another category and also a mapping `fmap` of morphisms (between objects)
+There are three such ways to do so. (Three arrows in the diagram).
 
-```ts
-type Functor<ℂ: Category, 𝔻: Category> = F: (ℂ -> 𝔻) & {
-    fmap: ℂ.Hom(X, Y) -> 𝔻.Hom(F(X), F(Y)),
-    idLaw: fmap(ℂ.id(X)) = 𝔻.id(F(X)), // n.b. both sides are morphisms
-    compLaw: f: ℂ.Hom(A, B) -> g: ℂ.Hom(B, C) -> fmap(g * f) = fmap(g) * fmap(f)
-};
-```
+More generally, a functor $d^i\colon [n-1] \to [n]$ is called a **coface map** and there are $n + 1$ of them, so there exist $d^i$ for $1 \leq i \leq n + 1$.
 
-### Contravariant functor
+A functor $f\colon [2] \to [1]$ involves principally a mapping of objects, so since we're mapping three objects to two objects here, it describes which object we're leaving out, so there are, again, three options here:
 
-A **contravariant functor** is a functor but with `cmap` instead of `fmap`. That is, the direction of the morphisms are reversed.
+$$ 0 \longrightarrow 2 $$
+$$ 0 \longrightarrow 1 $$
+$$ 1 \longrightarrow 2 $$
 
-```ts
-type CFunctor<ℂ: Category, 𝔻: Category> = F: (ℂ -> 𝔻) & {
-    cmap: ℂ.Hom(X, Y) -> 𝔻.Hom(F(Y), F(X)), // swapped
-    idLaw: cmap(ℂ.id(X)) = 𝔻.id(F(X)),
-    compLaw: f: ℂ.Hom(A, B) -> g: ℂ.Hom(B, C) -> cmap(g * f) = cmap(f) * cmap(g) // swapped
-};
-```
-
-### Presheaf
-
-A **presheaf** is a contravariant functor from a category to $\mathrm{Set}$.
-
-```ts
-type Presheaf<ℂ: Category> = CFunctor<ℂ, Set>;
-```
-
-Presheaves form their own category with "presheaf homomorphisms" (natural transformations) between them.
-
-## Simplex category
-
-```ts
-type NSimplex<n: Nat> = m: Nat & { p: m <= n };
-
-type Simplex = NSimplex<n: Nat!>;
-// forward reference
-// type Simplex = NSimplex<n> & { n: Nat }
-
-// order preserving map
-type OPM<A: Simplex<n: Nat>, B: Simplex<m: Nat>> = f: A -> B & { 
-    // i, j: Simplex<n: Nat>
-    p: i <= j -> f(i) <= f(j)
-};
-
-function *(g: B -> C, f: A -> B): A -> C
-    = a |-> g(f(a))
-
-
-type SimplexCategory: Category = Simplex & {
-    Hom(A, B): OPM<A, B>,
-    id: (x |-> x) & { p: i,j,p |-> p },
-
-    // need to prove g(f(i)) <= g(f(j))
-    // i <= j
-    // therefore, f(i) <= f(j)
-    // set x = f(i), y = f(j)
-    // x <= y
-    // therefore, g(x) <= g(y)
-    *(g,f) = g*f & { p: i,j |-> p |-> g.p(f(i), f(j), f.p(i, j, p)) },
-
-    // need to prove f = id(B) * f
-    // function part:
-    // f = a |-> (x |-> x)(f(a))
-    // f = a |-> f(a)
-    // judgementally equal, so `refl(f)` suffices
-    // proof part:
-    // f.p = i,j |-> p |-> (i,j,p |-> p)(f(i), f(j), f.p(i, j, p))
-    // f.p = i,j |-> p |-> f.p(i, j, p)
-    // judgementally equal, so `refl(f.p)` suffices
-    uniL(f) = refl(f) & { p: refl(f.p) },
-    uniR(f) = refl(f) & { p: refl(f.p) },
-
-    // too lazy
-    assoc(f, g, h) = ?
-};
-```
+Each of these functors $s^i\colon [n] \to [n-1]$ is called a **codegeneracy map**.
 
 ### Order-preserving maps
 
@@ -119,15 +44,9 @@ For any $n \geq 0$ there are $n+1$ injections and surjections.
 
 The injections $d^i\colon [n-1] \to [n]$ are called coface maps, and the surjections $s^i\colon [n+1] \to [n]$ are called codegeneracy maps.
 
-So for example imagine you have $[2] = \{0, 1, 2\}$ and $[3] = \{0, 1, 2, 3\}$. 
-
-to go from $[2]$ to $[3]$ you'd use a coface map, and there are four: one for missing each element in the image, so like $d^3$ would take $0$ to $0$, $1$ to $1$, $2$ to $2$, and $3$ would be missed.
-
-There are three codegeneracy maps here. What $s^1$ would do is send $0$ to $0$, $1$ to $1$, $2$ to $1$, and $3$ to $2$, so an $s^i$ sends $i$ and $i+1$ to the same element.
-
 ## Category of simplicial sets
 
-The category of simplicial sets $\mathrm{sSet}$ is the category of presheaves on the simplex category.
+The category of simplicial sets $\mathrm{sSet}$ is the category of set-valued presheaves on the simplex category.
 
 A simplicial set (a presheaf) $B$ works as follows:
 
@@ -141,16 +60,16 @@ B_n @<<{B(f)}< B_m
 \end{CD}
 $$
 
-Since we have coface $d^i$ and codegeneracy $s^i$ maps in the simplex category, we get face $B(d^i)\colon B_n \to B_{n-1}$ and degeneracy $B(s^i)\colon B_n \to B_{n+1}$ maps in $\mathrm{Set}$
+### Intuition
 
+The $0$-simplicies ($B_0$) are points, $1$-simplicies ($B_1$) edges, $2$-simplicies ($B_2$) triangles, $3$-simplicies ($B_3$) tetrahedra, etc.
 
-Maps between simplicial sets are natural transformations $\alpha_n\colon X_n \to Y_n$ with the naturality condition that this diagram commutes, for any $f: [n] \to [m]$
+### Generally
 
-$$
-\begin{CD}
-X_n @>{\alpha_n}>> Y_n \\
-@A{X(f)}AA @AA{Y(f)}A \\
-X_m @>>{\alpha_m}> Y_m
-\end{CD}
-$$
+Since we have coface $d^i$ and codegeneracy $s^i$ maps in the simplex category, we get **face** $B(d^i)\colon B_n \to B_{n-1}$ and **degeneracy** $B(s^i)\colon B_n \to B_{n+1}$ maps in $\mathrm{Set}$
 
+## Standard $n$-simplex
+
+The **standard $n$-simplex** $\Delta^n$ is the presheaf represented by $[n]$, or the hom functor $\operatorname{Hom}(-, [n])$. It has basically the same structure as the simplex itself, but represented as a simplicial set, which is a more general/flexible structure.
+
+So for $\Delta^2$ you have the same representation as a $2$-simplex. $\Delta^2_0$ represents the "vertices" of the triangle, while $\Delta^2_1$ represents the "edges" of the triangle. $\Delta^2_3$ represents the faces of a tetrahedron, which are triangles. 
