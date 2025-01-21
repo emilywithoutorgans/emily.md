@@ -14,7 +14,7 @@ Recall that partial orders themselves are categories, so a functor $f\colon [n] 
 
 The category of all $n$-simplices is called the simplex category $\Delta$, and it is a full subcategory of $\mathrm{Cat}$
 
-## coface map
+## Coface map
 
 For example, a functor $f\colon [1] \to [2]$ describes one way to fit the category
 
@@ -40,7 +40,7 @@ $$ d^2(0 \rightarrow 1) = 0 \rightarrow 1 $$
 
 So you're missing the $i$-th object in the codomain.
 
-## codegeneracy map
+## Codegeneracy map
 
 In the other direction, we can consider a functor $f\colon [2] \to [1]$. The composition rule for a functor is that $f(g \circ h) = f(g) \circ f(h)$, or, in the context of partial orders, given $x \leq y$ and $y \leq z$, using transitivity on $f(x \leq y)$ and $f(y \leq z)$ must yield $f(x \leq z)$.
 
@@ -60,7 +60,7 @@ Note that between $X_n$ and $X_{n+1}$ there are $n+1$ coface maps and $n$ codege
 
 The category of simplicial sets $\mathrm{sSet}$ is the category of set-valued presheaves on the simplex category.
 
-A simplicial set (a presheaf) $B$ works as follows:
+A simplicial set (a presheaf) $X$ works as follows:
 
 With every simplex $[n]$ there is an associated set $X_n$ of $n$-simplicies, and with every order-preserving map $f\colon [n] \to [m]$ there is a function $X(f): X_m \to X_n$
 
