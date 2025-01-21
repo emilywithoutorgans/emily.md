@@ -38,7 +38,7 @@ for (const file of await fs.readdir(markdownDir)) {
     if (path.extname(file) !== ".md") continue;
 
     const filePath = path.join(markdownDir, file);
-    const outputFileName = `${path.basename(file, ".md")}.html`;
+    const outputFileName = `${path.basename(file, ".md")}.html.html`; // double .html to fix route matching
     const outputFilePath = path.join(distDir, outputFileName);
 
     const markdown = await fs.readFile(filePath, "utf-8");

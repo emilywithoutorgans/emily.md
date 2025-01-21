@@ -134,7 +134,7 @@ The **skeletal filtration** $\mathrm{sk}_n$ is a way to write all simplicial set
 
 It's a cumulative sequence of simplicial sets, meaning you have
 
-$$ \operatorname{sk}_0(X) \sube \operatorname{sk}_1(X) \sube \operatorname{sk}_2(X) \sube \ldots $$
+$$ \operatorname{sk}_0(X) \subseteq \operatorname{sk}_1(X) \subseteq \operatorname{sk}_2(X) \subseteq \ldots $$
 
 The union of all of them is equal to $X$.
 
