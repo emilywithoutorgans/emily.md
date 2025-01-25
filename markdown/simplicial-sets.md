@@ -32,7 +32,7 @@ $$
 
 There are three such ways to do so, so three functors. (Three arrows in the diagram).
 
-To generalize, a functor $d^i\colon [n - 1] \to [n]$ is called a **coface map** and there are $n + 1$ of them, so there exist $d^i$ for $0 \leq i \leq n$. Grasping the ordering is necessary for this though, so examples:
+To generalize, a functor $d^i\colon [n - 1] \to [n]$ is called a **coface map** and there are $n + 1$ of them, so there exist $d^i$ for $0 \leq i \leq n$. Grasping the ordering is necessary for later parts of these notes, so examples:
 
 $$ d^0(0 \rightarrow 1) = 1 \rightarrow 2 $$
 $$ d^1(0 \rightarrow 1) = 0 \rightarrow 2 $$
@@ -156,9 +156,21 @@ This induces a clear embedding $\Lambda^n_k \rightarrowtail \Delta^n$.
 
 A **Kan complex** is a simplicial set such that every horn is filled in. There may be multiple fillings, but what matters is that there's at least one. 
 
+### Kan filler condition
+
+Feel free to skip, there's more explanation in the "connection" section
+
+A simplicial set is a Kan complex if, for every morphism $f\colon \Lambda^n_k \Rightarrow X $, there exists an extension morphism $g\colon \Delta^n \Rightarrow X$ such that embedding a horn $\Lambda^n_k$ into $\Delta^n$ and then taking $g$ commutes with $f$.
+
+Notice that, by the [Yoneda lemma](./simplicial-sets.html), all morphisms from $\Delta^n$ to $X$ are in direct correspondence with simplices of $X_n$. Meaning, any morphism from $\Delta^n$ to $X$ simply describes a single $n$-simplex in $X$.
+
+So we can view this as saying, take any horn, I want to be able to embed this horn into a simplex, and then I want to be able to say this *full* simplex is part of the simplicial set $X$. It's kind of like an embedding (but really it's an isomorphism). 1 extension morphism, 1 $n$-simplex.
+
+### connection
+
 Connecting to category theory, if we think of two composable morphisms, there exists a third composition morphism between them. This composition morphism is an example of a filling, though notice that 
 1. Kan complexes may have multiple "compositions".
-2.  Kan complexes imply that for all diagrams of the form
+2. Kan complexes imply that for all diagrams of the form
 
 $$
 \begin{array}{c}
@@ -185,6 +197,3 @@ Since this doesn't seem very category-theoretic due to the morphisms not being c
 A **quasicategory** or $\infty$-category is a simplicial set such that every horn that is not $\Lambda^n_0$ or $\Lambda^n_n$ is filled.
 
 Any quasicategory with the property that every horn has a *unique* filling is isomorphic to the nerve of a category. Conversely, the nerve of any category is a quasicategory with this property.
-
-## Kan fibration
-

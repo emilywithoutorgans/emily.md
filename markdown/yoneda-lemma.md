@@ -51,7 +51,7 @@ Z @= Z \\\\
 X @>>{\Box g}> Y
 \end{CD}$$
 
-This means that given a morphism $f\colon Z \to X$, the only way to form a $h\colon Z \to Y$ is to assume a morphism $g\colon X \to Y$. There are no other options. Pretty simple.
+This means that given a morphism $f\colon Z \to X$, the only way to form a $h\colon Z \to Y$ is to encode a morphism $g\colon X \to Y$ into $\alpha_Z$. That way $\alpha_Z$ gets associated with that particular $g$. There are no other options. Pretty simple.
 
 ### segué
 
@@ -68,46 +68,6 @@ $$ P(X) \simeq \operatorname{Hom}(\operatorname{Hom}(-, X), P)  $$
 The natural transformation expressed has the signature 
 $\alpha_Z\colon \operatorname{Hom}(Z, X) \to P(Z)$
 
-So, by the same logic, given an $f\colon Z \to X$, the Yoneda lemma states that the only way to construct a $P(Z)$ is to lift $f$ into $P(f)\colon P(X) \to P(Z)$ and then assume a $x \in P(X)$. There are no other options.
+So, by the same logic, given an $f\colon Z \to X$, the Yoneda lemma states that the only way to construct a $P(Z)$ is to lift $f$ into $P(f)\colon P(X) \to P(Z)$ and then encode a $x \in P(X)$ into $\alpha_Z$. There are no other options.
 
 You might be thinking, why can't we just assume a $P(Z)$ and we don't have to use $f$? Yes, the principle is correct, just set $Z = X$ and the same logic applies. In this case, identity is a choice for $f$.
-
-<!--
-For any presheaf $P$ in the presheaf category $\operatorname{Hom}(C^{\mathrm{op}}, \mathrm{Set})$, there is a canonical isomorphism
-
-$$ P(X) \simeq \operatorname{Hom}(\operatorname{Hom}(-, X), P)  $$
-
-This means that the image of the presheaf at a certain object $X$.
-
-If it makes more sense, you can think of the elements of $P(X)$ as $\operatorname{Hom}(1, P(X))$ 
-
-$$ \operatorname{Hom}(1, P(X)) \simeq \operatorname{Hom}(\operatorname{Hom}(-, X), P) $$
-
-
- 
-##
-
-As with any isomorphism, there are two directions (natural transformations) here:
-
-$$ P(X) \to \operatorname{Hom}(\operatorname{Hom}(-, X), P) $$
-
-This takes any $P(X)$ to the set of presheaf homomorphisms from the presheaf representing $X$ to $P$ 
-
-For reference, here's the naturality condition of a sample presheaf homomorphism $\alpha\colon \operatorname{Hom}(-, X) \to P$
-
-$$\begin{CD}
-\operatorname{Hom}(Y, X) @>>> P(Y) \\
-@VVV @VVV \\
-\operatorname{Hom}(Z, X) @>>> P(Z)
-\end{CD}$$
-
-## corollary
-
-The Yoneda embedding has the signature $\operatorname{Hom}(-, X): C \to \operatorname{Hom}(C^{\mathrm{op}}, \mathrm{Set})$. The Yoneda lemma implies that the Yoneda embedding is full and faithful, meaning, there is a bijection
-
-$$ \operatorname{Hom}(X, Y) \cong \operatorname{Hom}(\operatorname{Hom}(-, X), \operatorname{Hom}(-, Y)) $$
-
-You can get this by assigning $P = \operatorname{Hom}(-, Y)$ from the Yoneda lemma.
-
-## why is this significant?
- -->
