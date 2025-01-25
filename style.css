@@ -43,6 +43,15 @@ a {
     color: #007793;
 }
 
+iframe {
+    width: 100%;
+    margin-top: -30px;
+    margin-bottom: -10px;
+    position: relative;
+    z-index: -1;
+    user-select: none;
+}
+
 .hljs-strong {
     font-weight: bold;
 }
