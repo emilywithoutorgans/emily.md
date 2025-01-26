@@ -1,7 +1,7 @@
 
 # review of adjunctions
 
-A (forgetful) functor $F\colon \mathcal C \to \mathcal D$ is left adjoint to a (free) functor $G\colon \mathcal D \to \mathcal C$, (and $G$ is right adjoint to $F$) written $F \dashv G$ if,
+A (free) functor $F\colon \mathcal C \to \mathcal D$ is left adjoint to a (forgetful) functor $G\colon \mathcal D \to \mathcal C$, (and $G$ is right adjoint to $F$) written $F \dashv G$ if,
 
 ## hom-set bijection
 

@@ -4,7 +4,7 @@ I've *always* found this concept difficult to grasp, so I'm going to use a very 
 
 ## review of limits
 
-For every object $X \in \mathcal C$ induces a constant functor $\Delta_{\mathcal J}(X)\colon \mathcal J \to \mathcal C$ which sends every object in $\mathcal J$ to $X$ and every morphism to $1_X$.
+Every object $X \in \mathcal C$ induces a constant functor $\Delta_{\mathcal J}(X)\colon \mathcal J \to \mathcal C$ which sends every object in $\mathcal J$ to $X$ and every morphism to $1_X$.
 
 *Remark.* $\Delta_{\mathcal J}\colon \mathcal C \to {\mathcal C}^{\mathcal J}$ is itself a functor called the *diagonal functor*.
 
