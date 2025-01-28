@@ -77,7 +77,7 @@ From these three concepts you can construct *all exponentials* $A^B$ (relatively
 
 ## the "is singular" predicate
 
-We can derive the "singleton arrow" or "is singular" predicate $\{\cdot\}_X\colon X \to \mathcal P(X)$ as follows:
+We can derive the "singleton arrow" $\{\cdot\}_X\colon X \to \mathcal P(X)$ as follows:
 
 First, we can derive the **diagonal morphism** $\Delta_X\colon X \rightarrowtail X \times X$ as the universal morphism of this pullback (or product just as well):
 
@@ -91,6 +91,13 @@ Now, we can derive the characteristic map of $\Delta_X$ since it is monic, resul
 
 Taking the $\mathcal P$-transpose (currying) of that characteristic map gives us the map $\{\cdot\}_X\colon X \to \mathcal P(X)$.
 
+But that map is obviously monic! So we can analyze the characteristic map of that transpose
+
+<!-- https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzAsMiwiXFxtYXRoY2FsIFAoWCkiXSxbMiwyLCJcXE9tZWdhIl0sWzIsMCwiMSJdLFswLDEsIlxce1xcY2RvdFxcfV9YIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDIsIlxcZXhpc3RzXFxzaWdtYV9YPVxcb3BlcmF0b3JuYW1le2NoYXJ9IFxce1xcY2RvdFxcfV9YIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMywiISJdLFszLDIsIlxcbWF0aHJte3RydWV9IiwyXV0= -->
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzAsMiwiXFxtYXRoY2FsIFAoWCkiXSxbMiwyLCJcXE9tZWdhIl0sWzIsMCwiMSJdLFswLDEsIlxce1xcY2RvdFxcfV9YIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDIsIlxcZXhpc3RzXFxzaWdtYV9YPVxcb3BlcmF0b3JuYW1le2NoYXJ9IFxce1xcY2RvdFxcfV9YIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMywiISJdLFszLDIsIlxcbWF0aHJte3RydWV9IiwyXV0=&embed" height="240" style="border-radius: 8px; border: none;"></iframe>
+
+This $\sigma_X\colon \mathcal P(X) \to \Omega$ *tests* if the given subobject is singular. This will be crucial for the next section. 
+
 ## deriving exponentials from power objects
 
 ### graph of a function
@@ -99,8 +106,45 @@ In set theory, the **graph** of a function $f\colon X \to Y$ is defined as
 
 $$ G_f = \{(x, f(x)) \mid x \in X\} $$
 
-What we want to do is come up with a subobject of $X \times Y$ that describes graphs of functions. To do that, in set theory, we need to find a way to *test* whether a subset of $X \times Y$ is a graph. This sounds like a characteristic map.
+What we want to do is come up with a subobject of $X \times Y$ that describes graphs of functions. To do that, we need to find a way to *test* whether a subset of $X \times Y$ is a graph. This sounds like a characteristic map $\phi\colon X \times Y \to \Omega$.
 
-To do this, we can just enumerate every $x \in X$ and check if the image of $x$ ($f[{x}] \in \mathcal P(Y)$) is a singular value $\{f(x)\}$.
+Such a characteristic map (using $\mathrm{Set}$ terminology for the example) would function like, "we can just enumerate every $x \in X$ and check if the image of $x$ ($f[{x}] \in \mathcal P(Y)$) is a singular value $\{f(x)\}$".
 
+### the procedure
 
+So first, for any particular subobject $\mathcal P(X \times Y)$, we need a map $v_s\colon X \to \mathcal P(Y)$ that takes the domain to subobjects in the codomain. We can merge these two into a single universal map $v\colon X \times \mathcal P(X \times Y) \to \mathcal P(Y)$. We can derive this by taking the $\mathcal P$-transpose of $\in_{X \times Y}\colon X \times Y \times \mathcal P(X \times Y) \to \Omega$.
+
+Good. Step two is to *test* whether the image of that $\mathcal P(Y)$ we got is a singular element. We can do this by using that $\sigma_Y$ we derived earlier. So composing $\sigma_Y$ after $v$ gives us a $w\colon X \times \mathcal P(X \times Y) \to \Omega$ sending whatever in $X$ to $\mathrm{true}$ that has a singular image (e.g. in $\mathrm{Set}$ there is only one $(x, -)$).
+
+Step three is to obtain all the $X$ (a subobject $\mathcal P(X)$) such that $w$ is sent to $\mathrm{true}$. We can do this using yet another $\mathcal P$-transpose on $w$, yielding us a map $u\colon \mathcal P(X \times Y) \to \mathcal P(X)$. 
+
+Now we want to define the subobject $Y^X$ containing all graphs. It is the subobject $\mathcal P(X \times Y)$ such that $u$ maps to the "trivial" subobject of $X$, which is $X$ itself.
+
+Now we need to derive a characteristic map $\phi\colon X \to \Omega$ that sends everything to $\mathrm{true}$. There are several ways, but the simplest is to take the composition of the unique terminal map $!\colon X \to 1$ and then take $\mathrm{true}\colon 1 \to \Omega$. Then we can take the $\mathcal P$-transpose of that to get a global element $\mathrm{trivial}\colon 1 \to \mathcal P(X)$
+
+Now we can define $Y^X$ as the pullback
+
+<!-- https://q.uiver.app/#q=WzAsNCxbMCwwLCJZXlgiXSxbMCwyLCJcXG1hdGhjYWwgUChYIFxcdGltZXMgWSkiXSxbMiwyLCJcXG1hdGhjYWwgUChYKSJdLFsyLDAsIjEiXSxbMCwxLCJtIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwyLCJ1Il0sWzAsMywiISJdLFszLDIsIlxcbWF0aHJte3RyaXZpYWx9IiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dXQ== -->
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNCxbMCwwLCJZXlgiXSxbMCwyLCJcXG1hdGhjYWwgUChYIFxcdGltZXMgWSkiXSxbMiwyLCJcXG1hdGhjYWwgUChYKSJdLFsyLDAsIjEiXSxbMCwxLCJtIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwyLCJ1Il0sWzAsMywiISJdLFszLDIsIlxcbWF0aHJte3RyaXZpYWx9IiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dXQ==&embed" height="240" style="border-radius: 8px; border: none;"></iframe>
+
+Yay, let's celebrate! 
+
+But we're not done yet. 
+
+### the evaluation map
+
+For every exponential $Y^X$ there must be a corresponding **evaluation map** $\mathrm{ev}\colon X \times Y^X \to Y$. Thinking of this in terms of graphs, it's simply the singular element that the given $x \in X$ maps to. This calls for, you guessed it, another pullback
+
+<!-- https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIFxcdGltZXMgWV5YIl0sWzAsMiwiWCBcXHRpbWVzIFxcbWF0aGNhbCBQKFggXFx0aW1lcyBZKSJdLFsyLDIsIlxcbWF0aGNhbCBQKFkpIl0sWzIsMCwiWSJdLFswLDEsIigxX1gsIG0pIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDIsInYiXSxbMCwzLCJcXG1hdGhybXtldn0iLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywyLCJcXHtcXGNkb3RcXH0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV1d -->
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIFxcdGltZXMgWV5YIl0sWzAsMiwiWCBcXHRpbWVzIFxcbWF0aGNhbCBQKFggXFx0aW1lcyBZKSJdLFsyLDIsIlxcbWF0aGNhbCBQKFkpIl0sWzIsMCwiWSJdLFswLDEsIigxX1gsIG0pIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDIsInYiXSxbMCwzLCJcXG1hdGhybXtldn0iLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywyLCJcXHtcXGNkb3RcXH0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV1d&embed" height="240" style="border-radius: 8px; border: none;"></iframe>
+
+In the text there is an additional proof you have to make that this evaluation map has an "adjoint" relationship with products but I am too lazy to write this down.
+
+## monads and monadicity
+
+A **monad** is an endofunctor $T\colon \mathcal C \to \mathcal C$ with natural transformations $\eta_X\colon X \to T(X)$ (unit) and $\mu_X\colon T(T(X)) \to T(X)$ (multiplication) such that these diagrams commute:
+
+<!-- https://q.uiver.app/#q=WzAsOCxbMCwwLCJUKFQoVChYKSkpIl0sWzEsMCwiVChUKFgpKSJdLFsxLDEsIlQoWCkiXSxbMCwxLCJUKFQoWCkpIl0sWzIsMCwiVChYKSJdLFszLDAsIlQoVChYKSkiXSxbMiwxLCJUKFQoWCkpIl0sWzMsMSwiVChYKSJdLFswLDEsIlxcbXVfe1QoWCl9Il0sWzEsMiwiXFxtdV9YIl0sWzAsMywiVChcXG11X1gpIiwyXSxbMywyLCJcXG11X1giLDJdLFs0LDUsIlxcZXRhX3tUKFgpfSJdLFs0LDYsIlQoXFxldGFfWCkiLDJdLFs2LDcsIlxcbXVfWCIsMl0sWzUsNywiXFxtdV9YIl0sWzQsNywiIiwxLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiYXJyb3doZWFkIn19fV1d -->
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsOCxbMCwwLCJUKFQoVChYKSkpIl0sWzEsMCwiVChUKFgpKSJdLFsxLDEsIlQoWCkiXSxbMCwxLCJUKFQoWCkpIl0sWzIsMCwiVChYKSJdLFszLDAsIlQoVChYKSkiXSxbMiwxLCJUKFQoWCkpIl0sWzMsMSwiVChYKSJdLFswLDEsIlxcbXVfe1QoWCl9Il0sWzEsMiwiXFxtdV9YIl0sWzAsMywiVChcXG11X1gpIiwyXSxbMywyLCJcXG11X1giLDJdLFs0LDUsIlxcZXRhX3tUKFgpfSJdLFs0LDYsIlQoXFxldGFfWCkiLDJdLFs2LDcsIlxcbXVfWCIsMl0sWzUsNywiXFxtdV9YIl0sWzQsNywiIiwxLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiYXJyb3doZWFkIn19fV1d&embed" height="240" style="border-radius: 8px; border: none;"></iframe>
+
+It's a monoid in the category of endofunctors.
