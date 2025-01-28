@@ -41,9 +41,9 @@ To express how this works on morphisms, we must also talk about how power object
 <!-- https://q.uiver.app/#q=WzAsMyxbMCwxLCJYIFxcdGltZXMgWSJdLFsxLDEsIlxcT21lZ2EiXSxbMSwwLCJYIFxcdGltZXMgUChYKSJdLFswLDEsImYiLDJdLFsyLDEsIlxcaW5fWCJdLFswLDIsIigxX1gsIFxcZXhpc3RzICFnKSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ== -->
 <iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsMyxbMCwxLCJYIFxcdGltZXMgWSJdLFsxLDEsIlxcT21lZ2EiXSxbMSwwLCJYIFxcdGltZXMgUChYKSJdLFswLDEsImYiLDJdLFsyLDEsIlxcaW5fWCJdLFswLDIsIigxX1gsIFxcZXhpc3RzICFnKSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==&embed" height="240" style="border-radius: 8px; border: none;"></iframe>
 
-This is the third way to write a subobject: as a global element of a power object $s\colon 1 \to P(X)$.
+Informally: $f$ is basically an uncurried $Y$-indexing of subobjects of $X$. By the product-hom adjunction, we know that $f$ has a corresponding $h\colon Y \to \operatorname{Hom}(X, \Omega)$. $\operatorname{Hom}(X, \Omega)$ can be viewed as isomorphic to $P(X)$.
 
-This induces a bijection $ \operatorname{Hom}(X \times Y, \Omega) \cong \operatorname{Hom}(X, P(Y)) $.
+This induces a bijection $ \operatorname{Hom}(X \times Y, \Omega) \cong \operatorname{Hom}(Y, P(X)) $.
 
 Setting $Y$ to $1$ so $g$ describes a single subobject $s$ and viewing $f$ as a characteristic map $\phi$, the correspondence becomes clear:
 
@@ -52,7 +52,9 @@ Setting $Y$ to $1$ so $g$ describes a single subobject $s$ and viewing $f$ as a 
 
 So $\in_X$ essentially describes whether the first projection is in the image of the second projection (the subobject).
 
-#### morphisms?
+This is the third way to write a subobject: as a global element of a power object $s\colon 1 \to P(X)$.
+
+#### morphisms? (not super important)
 
 $P$ functions like a functor in the sense that for any $f\colon X \to Y$ there exists a $P(f)\colon P(Y) \to P(X)$ such that this diagram commutes:
 
@@ -73,8 +75,32 @@ $$ \operatorname{Sub}(X \times Y) \cong \operatorname{Hom}(X, P(Y)) $$
 
 From these three concepts you can construct *all exponentials* $A^B$ (relatively easy) and all *finite colimits* (ungodly difficulty).
 
-## exponentials
+## the "is singular" predicate
 
-Any exponential $Y^X$ is isomorphic to the power object $P(Y \times X)$.
+We can derive the "singleton arrow" or "is singular" predicate $\{\cdot\}_X\colon X \to \mathcal P(X)$ as follows:
+
+First, we can derive the **diagonal morphism** $\Delta_X\colon X \rightarrowtail X \times X$ as the universal morphism of this pullback (or product just as well):
+
+<!-- https://q.uiver.app/#q=WzAsNSxbMSwxLCJYIFxcdGltZXNfWCBYIl0sWzIsMSwiWCJdLFsxLDIsIlgiXSxbMiwyLCJYIl0sWzAsMCwiWCJdLFswLDEsIlxccGlfMSJdLFswLDIsIlxccGlfMiIsMl0sWzIsMywiMV9YIiwyXSxbMSwzLCIxX1giXSxbNCwxLCIxX1giLDEseyJjdXJ2ZSI6LTJ9XSxbNCwwLCJcXERlbHRhX1giLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDIsIjFfWCIsMSx7ImN1cnZlIjoyfV1d -->
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNSxbMSwxLCJYIFxcdGltZXNfWCBYIl0sWzIsMSwiWCJdLFsxLDIsIlgiXSxbMiwyLCJYIl0sWzAsMCwiWCJdLFswLDEsIlxccGlfMSJdLFswLDIsIlxccGlfMiIsMl0sWzIsMywiMV9YIiwyXSxbMSwzLCIxX1giXSxbNCwxLCIxX1giLDEseyJjdXJ2ZSI6LTJ9XSxbNCwwLCJcXERlbHRhX1giLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDIsIjFfWCIsMSx7ImN1cnZlIjoyfV1d&embed" height="240" style="border-radius: 8px; border: none;"></iframe>
+
+Now, we can derive the characteristic map of $\Delta_X$ since it is monic, resulting in this pullback:
+
+<!-- https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzAsMiwiWFxcdGltZXMgWCJdLFsyLDIsIlxcT21lZ2EiXSxbMiwwLCIxIl0sWzAsMSwiXFxEZWx0YV9YIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDIsIlxcZXhpc3RzXFxkZWx0YV9YPVxcb3BlcmF0b3JuYW1le2NoYXJ9IFxcRGVsdGFfWCIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDMsIiEiXSxbMywyLCJcXG1hdGhybXt0cnVlfSIsMl1d -->
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzAsMiwiWFxcdGltZXMgWCJdLFsyLDIsIlxcT21lZ2EiXSxbMiwwLCIxIl0sWzAsMSwiXFxEZWx0YV9YIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDIsIlxcZXhpc3RzXFxkZWx0YV9YPVxcb3BlcmF0b3JuYW1le2NoYXJ9IFxcRGVsdGFfWCIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDMsIiEiXSxbMywyLCJcXG1hdGhybXt0cnVlfSIsMl1d&embed" height="240" style="border-radius: 8px; border: none;"></iframe>
+
+Taking the $\mathcal P$-transpose (currying) of that characteristic map gives us the map $\{\cdot\}_X\colon X \to \mathcal P(X)$.
+
+## deriving exponentials from power objects
+
+### graph of a function
+
+In set theory, the **graph** of a function $f\colon X \to Y$ is defined as
+
+$$ G_f = \{(x, f(x)) \mid x \in X\} $$
+
+What we want to do is come up with a subobject of $X \times Y$ that describes graphs of functions. To do that, in set theory, we need to find a way to *test* whether a subset of $X \times Y$ is a graph. This sounds like a characteristic map.
+
+To do this, we can just enumerate every $x \in X$ and check if the image of $x$ ($f[{x}] \in \mathcal P(Y)$) is a singular value $\{f(x)\}$.
 
 
