@@ -140,7 +140,7 @@ For every exponential $Y^X$ there must be a corresponding **evaluation map** $\m
 
 In the text there is an additional proof you have to make that this evaluation map has an "adjoint" relationship with products but I am too lazy to write this down.
 
-## monads and monadicity
+## monads and monadicity (extra stuff)
 
 A **monad** is an endofunctor $T\colon \mathcal C \to \mathcal C$ with natural transformations $\eta_X\colon X \to T(X)$ (unit) and $\mu_X\colon T(T(X)) \to T(X)$ (multiplication) such that these diagrams commute:
 
@@ -148,3 +148,18 @@ A **monad** is an endofunctor $T\colon \mathcal C \to \mathcal C$ with natural t
 <iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsOCxbMCwwLCJUKFQoVChYKSkpIl0sWzEsMCwiVChUKFgpKSJdLFsxLDEsIlQoWCkiXSxbMCwxLCJUKFQoWCkpIl0sWzIsMCwiVChYKSJdLFszLDAsIlQoVChYKSkiXSxbMiwxLCJUKFQoWCkpIl0sWzMsMSwiVChYKSJdLFswLDEsIlxcbXVfe1QoWCl9Il0sWzEsMiwiXFxtdV9YIl0sWzAsMywiVChcXG11X1gpIiwyXSxbMywyLCJcXG11X1giLDJdLFs0LDUsIlxcZXRhX3tUKFgpfSJdLFs0LDYsIlQoXFxldGFfWCkiLDJdLFs2LDcsIlxcbXVfWCIsMl0sWzUsNywiXFxtdV9YIl0sWzQsNywiIiwxLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiYXJyb3doZWFkIn19fV1d&embed" height="240" style="border-radius: 8px; border: none;"></iframe>
 
 It's a monoid in the category of endofunctors.
+
+### adjunctions and monads
+
+All [adjunctions](./adjunctions.md) $F \vdash G$ induce a monad $G \circ F\colon \mathcal C \to \mathcal C$ with the unit $\eta_C: C \to G(F(C))$. 
+
+Multiplication is a bit harder to derive, but we're looking for a $\mu_C\colon G(F(G(F(C)))) \to G(F(C))$ given an $\epsilon_D: F(G(D)) \to D$. 
+
+Setting $D$ to $F(C)$ we get $\epsilon_{F(C)}: F(G(F(C))) \to F(C)$ and we can lift that morphism through $G$ to yield the multiplication $\mu_C = G(\epsilon_{F(C)})\colon G(F(G(F(C)))) \to G(F(C))$
+
+## another way to look at the power functor
+
+The power functor $\mathcal P\colon \mathcal T^{\mathrm{op}} \to \mathcal T$ has a *left adjoint*, the opposite functor $\mathcal P^{\mathrm{op}}\colon \mathcal T \to \mathcal T^{\mathrm{op}}$, meaning there are natural transformations $\eta_X: X \to \mathcal P(\mathcal P^{\mathrm{op}}(X))$ (unit) and $\epsilon_X: \mathcal P^{\mathrm{op}}(\mathcal P(X)) \to X$ (counit) satisfying [the triangle inequalities](./adjunctions.md).
+
+## deriving the initial object
+
