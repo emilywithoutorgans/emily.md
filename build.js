@@ -59,7 +59,7 @@ indexMarkdown += `\n\nLast updated: ${formattedDate} `;
 
 try {
     const commitHash = execSync("git rev-parse --short HEAD").toString().trim();
-    indexMarkdown += `<br>Last commit: [\`${commitHash}\`](https://github.com/emilywithoutorgans/notes)`;
+    indexMarkdown += `<br>Last commit: [\`${commitHash}\`](https://github.com/emilywithoutorgans/notes.emily.md)`;
 } catch { }
 
 await fs.writeFile(path.join(distDir, "index.html"), processMarkdown(indexMarkdown));
