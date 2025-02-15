@@ -168,7 +168,7 @@ Here's Marx's line of argument:
 
 First, he identifies the usual story as saying that "wages are what's left after rent and profit are taken out", like capitalists "deduct" their share from revenue.
 
-This is backwards. The worker doesn't start with 100% of the wealth and then have pieces taken away. The capitalist starts with all of it and wages are justa small fraction they *allow* the worker to keep so they don't drop dead before the next shift.
+This is backwards. The worker doesn't start with 100% of the wealth and then have pieces taken away. The capitalist starts with all of it and wages are just a small fraction they *allow* the worker to keep so they don't drop dead before the next shift.
 
 When society is falling apart, the worker suffers the most, because they're already living on the edge. They have no safety net, no reserves, no passive income, just their labor, which is the first thing to be devalued. This is a general burden in living in society, but the specific misery of the worker comes from their dependence on labor.
 
@@ -210,7 +210,7 @@ Abstract labor is a commodity, just like corn, steel, or oil. Its price (wages) 
 
 If wages are high, it means labor is scarce, so capitalists have to compete to buy it. If wages are low, it means there are too many desperate workers willing to sell themselves, so capitalists can pay them scraps.
 
-Over time, wages must falll ower and lower because two forces are constantly driving them down:
+Over time, wages must fall lower and lower because two forces are constantly driving them down:
 
 1. If the capitalist can cut wages without causing a revolt, they will.
 
@@ -222,6 +222,127 @@ Eugène Buret, in his "De la misère..." stresses that the capitalist always has
 
 If a factory owner can't sell steel today, they can store it and sell it later. A worker, on the other hand, if they don't work today, they don't eat today.
 
-If labor is a commodity, then **human life itself is a commodity.** If your survival depends on being bought and sold, you're not "freely" selling labor, you're just a modernized version of a slave. The only difference is, instead of being owned outright, you're beg to be rented by the hour.
+If labor is a commodity, then **human life itself is a commodity.** If your survival depends on being bought and sold, you're not "freely" selling labor, you're just a modernized version of a slave. The only difference is, instead of being owned outright, you beg to be rented by the hour.
 
 Labor isn't really a commodity, though. A real commodity is something that's freely traded between equal parties. However, this relationship more amounts to extortion than a transaction. Ultimately, the system "perfects the worker" from the perspective of the capitalist and "degrades the man" behind the worker. Labor also cannot be accumulated or saved. "Labor is life, and if life is not each day exchanged for food, it suffers and soon perishes".
+
+## profit of capital: second manuscript
+
+### capital
+
+> "if capital itself does not merely amount to theft or fraud, it requires still the co-operation of legislation to sanctify inheritance." (Jean-Baptiste Say)
+
+The basis of capital, the foundation of private property in things produced by other people's labor, amounts to legalized theft.
+
+Capital is something capitalists own but do not produce. It didn't start with hard work, it started with force, theft, and enclosure.
+
+> How does one become a proprietor of productive stock? How does one become owner of the products created by means of this stock? "By virtue of positive law." (Say)
+
+You don't become a capitalist by working hard or creating value (the only way being the exertion of labor). You become one because the law says you are one.
+
+What separates a capitalist from a worker is who owns the productive stock, and the way you get to *own* that is strictly a matter of legal recognition.
+
+> What does one acquire with capital, with the inheritance of a large fortune, for instance?
+
+According to Adam Smith in *The Wealth of Nations*, you acquire not necessarily political power, but buying power. You get control over human labor and everything labor produces.
+
+Marx states that capital is the *governing power* to dictate what gets produced, who works, and under what conditions. You command not just resources but the people who turn those resources into products of labor. 
+
+The capitalist only possesses the power of capital because he is the owner of capital, not because of his "personal or human qualities".
+
+A worker, on the other hand, no matter how skilled, can only *offer* their labor. A capitalist, by virtue of wealth alone, can *buy* labor and dictate its terms.
+
+Marx also notes that, while capital holds power over labor and the production that workers are employed to do, capital also holds power over capitalists themselves.
+
+So what is capital?
+
+> Capital is stored-up labor.
+
+Every machine, factory, or piece of equipment was built by workers. All capital was originally the result of labor. But instead of benefiting the creators of capital, it's hoarded and used to generate profits for those who own it.
+
+Capital is stored-up labor, but what matters is who gets to control it. A pile of goods or resources isn't capital unless it's being used to extract even more wealth for its owner. 
+
+If you have stockpiles of food but eat it yourself, that's just stock. If you use it to force people to work for you in exchange for food, *now* it's capital.
+
+It's stored-up labor that has been taken from workers, turned into an asset, and used to dominate future labor. It's wealth that doesn't work but forces others to work for it.
+
+### the profit of capital
+
+Lots of this section cites *The Wealth of Nations*.
+
+Wages and profits are completely different. Wages are tied to actual labor performed. You work, you get paid. Profits are tied to the size of capital invested, not the work done.
+
+You could have two capitalists doing the same amount of management work, but if one has ten times the capital, they get ten times the profit. Profit isn't based on effort. It's based on ownership.
+
+In large operations, management gets handed off to a salaried clerk whose fixed pay has no relationship to the capital they're managing. The capitalist gets the profit just because they own the capital being invested.
+
+Capitalists would have no interest in investing large sums of capital if the profit weren't to be proportionate to how much was invested in the first place.
+
+> The capitalist thus makes a profit, first, on the wages, and secondly on the raw materials advanced by him.
+
+The capitalist extracts value twice from the production process. 
+
+First, they profit from wages. Workers create far more value than they're paid for. The difference between what they produce and what they earn is surplus value, which is extracted as profit.
+
+Secondly, they profit from raw materials. They buy materials at one price and sells the final product at a much higher one. The one to do the *work* to transform those materials is the worker. The capitalist just owns the process.
+
+> What proportion, then, does profit bear to capital?
+
+Wages are already tough to calculate precisely, but they have some basic consistency. Profit is much, much worse to calculate. The prices of goods change, competitors are introduced and eliminated, disasters, market shifts, etc.
+
+At the time, Smith notes that in Great Britain, merchants expected their capital to bring in at least *twice* the going interest rate, just for existing. This was called a "common and usual profit".
+
+Workers don't get this kind of "reasonable return" on labor. Fundamentally imbalanced.
+
+> What is the lowest rate of profit? And what the highest?
+
+The lowest rate of profit must be greater than the costs of utilizing capital.
+
+The highest rate of profit is a state in which workers' wages are driven to the lowest they can be while the worker stays alive and keeps working. Secondly, landowners will get cut out; their rent payments stop in order to minimize costs and maximize profit.
+
+#### exploiting the market
+
+The capitalist has several ways of inflating market price:
+
+1. **Hiding market information.** If a capitalist knows prices are rising in a distant market but keeps it secret, well, they address demand but anticompetitively. This isn't about efficiency or innovation at all, but withholding information.
+
+2. **Hiding manufacturing secrets.** Self-explanatory. Hoard knowledge to extract profit. The innovation may be real, but is kept secret. Nobody can build off of it. Cost of doing business, right? /s
+
+3. **Natural scarcity.** Products like rare wines are naturally limited. Capitalists *never* have to lower the price. Perfect inelasticity. Exploitation of scarcity.
+
+4. **Monopolies.** You can charge the absolute maximum in a monopoly because nobody can compete.
+
+5. **Expansion.** Profits shoot up when new territories or trade routes open up because capital is redirected, reducing competition in existing markets. Fewer goods = higher prices = more profit.
+
+#### increasing shares
+
+As Marx noted before, profit is also extracted from raw materials. For a raw material like cotton, a large chunk of its price might go toward rent/fixed costs, but as it's processed, like turned into clothing, the proportion going to rent/fixed costs shrinks, while the proportion going to wages and profit grows.
+
+Evidently, every new stage of production requires bigger investment of capital. It's easier to produce just cotton than cotton + weaving it into clothing. These capitalists have the opportunity to layer more profits on top of previous profits.
+
+Capitalists at the later stages of production accumulate more wealth, while raw material producers and low-skill workers make much less by comparison. Factory owners make more than farmers and brand-name corporations make more than their suppliers.
+
+Division of labor increases profits due to heightened productivity.
+
+Profits also go up when money circulation gets easier, like with paper money.
+
+### the rule of capital over labor and the motives of the capitalist
+
+Capitalists only care about private profit. Whatever they invest in is based on what makes them the most money, and the most profitable industries aren't always the ones that benefit society.
+
+Profit rates don't rise when society prospers. They're the highest when they're falling apart.
+
+- Rich, stable societies have low profit rates. Lots of capital, lots of competition, businesses require fairer play.
+
+- Poor, struggling societies have extremely high profit rates. Capital is scarce, wages are low, and desperate people will work for anything.
+
+- Countries on the verge of collapse are the jackpot. Workers have zero bargaining power and capitalists can buy up resources for extremely cheap.
+
+Recessions, depressions, wars, and economic collapses are *opportunities* for capitalists.
+
+The default capitalist strategy is to expand the market, increase demand, while reducing competition.
+
+Adam Smith sums it up pretty well when he mentions that capitalists as a class "have generally an interest to deceive and oppress the public". They never have identical interests to society. In fact they're often in sharp opposition.
+
+### the accumulation of capitals and the competition amongst the capitalists
+

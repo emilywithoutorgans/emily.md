@@ -39,6 +39,14 @@ small {
     font-size: 0.889rem;
 }
 
+blockquote {
+    font-style: italic;
+    color: #222;
+    border-left: 3px solid #999;
+    padding-left: 12px;
+    margin: 15px 0 15px 4px;
+}
+
 a {
     color: #007793;
 }
