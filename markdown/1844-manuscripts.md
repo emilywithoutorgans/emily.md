@@ -12,7 +12,9 @@ All three manuscripts are mainly about **estrangement of labor** and **alienatio
 
 Marx shows that the more wealth a worker produces, the poorer they become. He further claims that this will inevitably lead to revolution, then to workers' emancipation, and, by extension, "universal human emancipation".
 
-## wages of labor: first manuscript
+## first manuscript
+
+### wages of labor (section 1)
 
 Wages are the product of struggle between the capitalist and the worker. However, the capitalist always wins due to the fact that the capitalist is much less dependent on the worker than the worker is dependent on the capitalist.
 
@@ -226,9 +228,9 @@ If labor is a commodity, then **human life itself is a commodity.** If your surv
 
 Labor isn't really a commodity, though. A real commodity is something that's freely traded between equal parties. However, this relationship more amounts to extortion than a transaction. Ultimately, the system "perfects the worker" from the perspective of the capitalist and "degrades the man" behind the worker. Labor also cannot be accumulated or saved. "Labor is life, and if life is not each day exchanged for food, it suffers and soon perishes".
 
-## profit of capital: second manuscript
+### profit of capital (section 2)
 
-### capital
+### 1. capital
 
 > "if capital itself does not merely amount to theft or fraud, it requires still the co-operation of legislation to sanctify inheritance." (Jean-Baptiste Say)
 
@@ -266,7 +268,7 @@ If you have stockpiles of food but eat it yourself, that's just stock. If you us
 
 It's stored-up labor that has been taken from workers, turned into an asset, and used to dominate future labor. It's wealth that doesn't work but forces others to work for it.
 
-### the profit of capital
+### 2. the profit of capital
 
 Lots of this section cites *The Wealth of Nations*.
 
@@ -326,7 +328,7 @@ Division of labor increases profits due to heightened productivity.
 
 Profits also go up when money circulation gets easier, like with paper money.
 
-### the rule of capital over labor and the motives of the capitalist
+### 3. the rule of capital over labor and the motives of the capitalist
 
 Capitalists only care about private profit. Whatever they invest in is based on what makes them the most money, and the most profitable industries aren't always the ones that benefit society.
 
@@ -344,5 +346,140 @@ The default capitalist strategy is to expand the market, increase demand, while 
 
 Adam Smith sums it up pretty well when he mentions that capitalists as a class "have generally an interest to deceive and oppress the public". They never have identical interests to society. In fact they're often in sharp opposition.
 
-### the accumulation of capitals and the competition amongst the capitalists
+### 4. the accumulation of capitals and the competition amongst the capitalists
 
+#### increasing capital
+
+increasing capital -> more competition among capitalists -> cheaper products
+
+Capitalists are interested in monopoly-price, i.e. highest possible price, which arises from a monopoly. Interests are in conflict with society.
+
+"The sole defense against capitalists is *competition*", which political economy views as good due to raising wages and lowering prices.
+
+However, competition is suicidal.
+
+Note that competition is only possible from increasing and decentralized capital.
+
+Competition is supposed to keep things fair, but capitalism always leads to monopoly. Capital only grows through accumulation, but, by the compound nature of capital, there's inevitably some capitals growing faster than others. The big fish eat the smaller fish, and competition dies out.
+
+Competition creates accumulation, accumulation destroys competition.
+
+As described above, the first to suffer as a result of increasing capital -> increased competition -> decreasing profit on capital is the small capitalist (more on this below). 
+
+Note, as before, increasing capital can only happen if the country's wealth grows as well.
+
+#### investment vs. passive income
+
+Political economy points at the proportion between capital and revenue to predict the proportion between industry and idleness. The logic goes: 
+
+- If capital (investment, reinvestment) dominates, people work and grow wealth.
+- If revenue (passive income, rentier wealth) dominates, people just live off that income and do nothing.
+
+As capital grows, more money is available for lending and interest rates drop because
+
+1. There is more capital, lenders have to compete to find borrowers.
+
+2. With increasing capital, it becomes more and more difficult to find profitable investments just because there are so little opportunities. 
+
+Competition forces them to cut prices, take lower returns, and accept worse deals. The demand for labor increases, but labor isn't infinite, so capitalists have to start competing for labor. Higher wages and lower profits.
+
+#### the small capitalist
+
+Therefore, Marx states, a small capitalist facing falling profits has two trash options:
+
+1. **Stop being a capitalist.** They can consume their own capital to survive.
+
+2. **Try to compete by running their own business.** But bigger capitalists already dominate the market, so the small capitalist has to undercut the big competitors, buy higher, and pay increased wages in order to survive. 
+
+However, this latter option is not going to work, since the big capitalist has every advantage, including being able to survive low profits longer, being able to undercut the small capitalist to drive them out of business, and paying less by buying in bulk.
+
+This is how small capitalists disappear and markets consolidates. Capitalism trends toward monopoly.
+
+#### the middle capitalist
+
+In the event of a fall in interest rates, middle capitalists can no longer live off passive income (small-time investors on bonds, savings, dividends, not necessarily apartment leasers). They have to start businesses instead of just collecting interest.
+
+As we've said before, profits fall with increasing capital. Middle capitalists are screwed and thrown back into the working class, reluctantly or not. Big capital continues to rise. The market is further consolidated in the case of increasing wealth and capital.
+
+#### fixed vs. circulating capital
+
+Circulating capital is money that's constantly moving, like raw materials, inventory, and wages. It doesn't make a profit while it's sitting still, only when it's used, sold, or transformed.
+
+Fixed capital is long-term investments, like machines, land improvements, or factories. Not very frequent, but they can boost production or resilience.
+
+Profits only come from keeping capital moving. A factory full of unsold products = no profit. Wages paid before production = temporarily lost money. Capitalists only profit when money is constantly cycling through different forms.
+
+Every dollar saved on maintaining fixed capital is a dollar more for circulating capital. Reducing fixed costs = more room to increase labor costs without increasing costs in general.
+
+Example being workers. Workers are fixed capital. Replacing workers with unpaid machines is often a win. More money for circulating capital.
+
+#### misc passages
+
+> “To hire out one’s labour is to begin one’s enslavement. To hire out the materials of labour is to establish one’s freedom.... Labour is man; but the materials of labour, on the other hand, contain nothing human.” (Pecqueur, Théorie sociale, etc., pp. 411-12.)
+
+> “Supposing that the daily labour of a worker brings him on the average four hundred francs a year and that this sum suffices for every adult to live some sort of crude life, then any proprietor receiving 2,000 francs in interest or rent, from a farm, a house, etc., compels indirectly five men to work for him; an income of 100,000 francs represents the labour of two hundred and fifty men, and that of 1,000,000 francs the labour of two thousand five hundred individuals (and 300 million [Louis Philippe] therefore the labour of 750,000 workers).” (Ibid., pp. 412-13.)
+
+#### consequence of free competition
+
+Competition is an expression of the rational freedom to exchange and freedom to produce.
+
+> each produces what he wishes, as he wishes, when he wishes, where he wishes, produces well or produces badly, produces too much or not enough, too soon or too late, at too high a price or too low a price
+
+They really don't know anything:
+
+> none knows whether he will sell, how he will sell, when he will sell, where he will sell, to whom he will sell. 
+
+In the case of purchasing supplies to produce,
+
+> The producer is ignorant of needs and resources, of demand and supply. He sells when he wishes, when he can, where he wishes, to whom he wishes, at the price he wishes. And he buys in the same way. 
+
+
+> In all this he is ever the plaything of chance, the slave of the law of the strongest, of the least harassed, of the richest. 
+
+One producer might make a lot of revenue, while the other has zero.
+
+> The supply does not know the demand, and the demand does not know the supply. You produce, trusting to a taste, a fashion, which prevails amongst the consuming public. But by the time you are ready to deliver the commodity, the whim has already passed and has settled on some other kind of product.
+
+This seems like an extremely unstable and opaque system. And it surely is:
+
+> The inevitable consequences: bankruptcies occurring permanently and universally; miscalculations, sudden ruin and unexpected fortunes, commercial crises, unemployment, periodic gluts or shortages; instability and depreciation of wages and profits, the loss or enormous waste of wealth, time and effort in the arena of fierce competition. (Schulz, Bewegung der Produktion, 414-16)
+
+#### Ricardo: humans are just economic units
+
+A capitalist doesn't much care if they employ 100 or 1,000 people as long as the profit stays the same. Likewise, a nation doesn't care if it has 10 or 12 million people, as long as its net income stays the same. Sismondi takes Ricardo's logic and runs with it:
+
+If human life is just a means to produce profit, then the ideal society is one where there are no humans at all. Just a kind turning a crank, operating machines that do all the work. No wages, no workers, no strikes, no human needs. Just pure, uninterrupted profit.
+
+#### overproduction
+
+Capitalists must reinvest to stay competitive.
+
+More capital -> more industry -> more goods (through DOL)
+
+But demand doesn't grow at the same rate. Workers aren't paid enough. Overproduction. This is what creates boom and bust cycles.
+
+#### the old megacorporation
+
+When capitalists fully vertically integrate (they own every step of production, they don't have to buy inputs), they run out of ways to expand.
+
+The solution is joint-stock companies so they can invest across multiple industries (agriculture, commerce, industry all at once).
+
+As a result, there's no real competition left. The contradictions between farmers, merchants, and industrialists disappear because they're no longer separate. The ruling class is all of those at once.
+
+The only contradiction left is propertied (capitalists) vs. non-propertied (workers). 
+
+A single ultra-capitalist could (and does) have a stake in everything from banks to leasing apartments to grocery stores. Workers no longer have independent employers to bargain with. Capitalists set wages, prices, and working conditions without resistance without a free market pressure.
+
+#### profiting off of misery
+
+When wages drop and poverty rises, workers have fewer housing options. But then again, housing is a *necessity*.
+
+Enter jacking up rents and tenements and profiting off of them. The worse the economy, the better for landlords, since tenants are desperate.
+
+Landlords are not the only ones though; there's also the vice industry. 
+
+When workers are ruined, they turn to alcohol, gambling, prostitution, and pawning off their belongings. All contributes to the flow of capital. Profits go to liquor sellers, casino owners, pimps, and pawnshops.
+
+Slumlords profit off homelessness, vice industries profit off desperation, the system justifies all of it as normal economics.
+
+### rent of land
