@@ -1,0 +1,19 @@
+{
+    "name": "notes.emily.md",
+    "private": true,
+    "author": "emilywithoutorgans",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "watch": "nodemon --watch markdown --watch scripts --watch ../markdown-renderer scripts/build.js",
+        "build": "node scripts/build.js",
+        "start": "sirv dist -D -H -p 3000"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.9",
+        "sirv-cli": "^3.0.0"
+    },
+    "dependencies": {
+        "@emily/markdown-renderer": "file:../markdown-renderer"
+    }
+}

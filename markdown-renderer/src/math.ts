@@ -1,11 +1,13 @@
+import { TokenizerAndRendererExtension } from "marked";
+
 // modified from https://github.com/UziTech/marked-katex-extension/blob/main/src/index.js
 
 const inlineRule = /^(\${1,2})(?!\$)((?:\\.|[^\\\n])*?(?:\\.|[^\\\n\$]))\1/;
 const blockRule = /^(\${1,2})\n((?:\\[^]|[^\\])+?)\n\1(?:\n|$)/;
 
-const renderer = token => token.displayMode ? `$$\n${token.text}\n$$` : `$${token.text}$`;
+const renderer = (token: any) => token.displayMode ? `$$\n${token.text}\n$$` : `$${token.text}$`;
 
-const inlineMath = {
+const inlineMath: TokenizerAndRendererExtension = {
     name: "inlineMath",
     level: "inline",
     start(src) {
@@ -42,7 +44,7 @@ const inlineMath = {
     renderer
 };
 
-const blockMath = {
+const blockMath: TokenizerAndRendererExtension = {
     name: "blockMath",
     level: "block",
     tokenizer(src) {

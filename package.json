@@ -1,20 +1,14 @@
 {
-    "name": "notes.emily.md",
+    "name": "site",
+    "private": true,
     "author": "emilywithoutorgans",
     "license": "MIT",
-    "type": "module",
     "scripts": {
-        "watch": "nodemon --watch markdown --watch build.js --watch style.css --ext md build.js",
-        "build": "node build.js",
-        "start": "sirv dist -D -H -p 3000"
+        "build": "tsc -b",
+        "watch": "tsc -b -w"
     },
     "devDependencies": {
-        "nodemon": "^3.1.9",
-        "sirv-cli": "^3.0.0"
-    },
-    "dependencies": {
-        "highlight.js": "^11.11.1",
-        "marked": "^15.0.4",
-        "marked-highlight": "^2.2.1"
+        "@types/node": "^22.15.18",
+        "typescript": "^5.8.3"
     }
 }

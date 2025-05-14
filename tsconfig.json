@@ -1,0 +1,8 @@
+{
+    "files": [],
+    "references": [
+        { "path": "./markdown-renderer" },
+        { "path": "./notes.emily.md" },
+        { "path": "./emily.md" }
+    ]
+}
