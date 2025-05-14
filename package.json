@@ -5,10 +5,13 @@
     "license": "MIT",
     "scripts": {
         "build": "tsc -b",
-        "watch": "tsc -b -w"
+        "watch": "tsc -b -w",
+        "build:root": "pnpm build && cd emily.md && pnpm build",
+        "build:notes": "pnpm build && cd notes.emily.md && pnpm build"
     },
     "devDependencies": {
         "@types/node": "^22.15.18",
         "typescript": "^5.8.3"
-    }
+    },
+    "packageManager": "pnpm@10.11.0"
 }

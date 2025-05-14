@@ -1,0 +1,4 @@
+packages:
+    - "markdown-renderer"
+    - "emily.md"
+    - "notes.emily.md"
