@@ -21,7 +21,10 @@ const footer = `<script>MathJax = { tex: { inlineMath: [["$", "$"]], displayMath
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>${bottom}</style>`;
 
+export function renderMarkdownInline(markdown: string): string {
+    return marked.parse(markdown, { async: false });
+}
+
 export function renderMarkdownToHTML(markdown: string): string {
-    const html = marked.parse(markdown);
-    return `${header}\n${html}${footer}`;
+    return `${header}\n${renderMarkdownInline(markdown)}\n${footer}`;
 }

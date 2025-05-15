@@ -1,11 +1,11 @@
 {
-    "name": "notes.emily.md",
+    "name": "emily.md",
     "private": true,
     "author": "emilywithoutorgans",
     "license": "MIT",
     "type": "module",
     "scripts": {
-        "watch": "nodemon --watch markdown --watch scripts --watch ../markdown-renderer scripts/build.js",
+        "watch": "nodemon --watch posts --watch scripts --watch ../markdown-renderer scripts/build.js",
         "build": "node scripts/build.js",
         "start": "sirv dist -D -H -p 3000"
     },
