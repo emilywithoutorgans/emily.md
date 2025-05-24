@@ -24,6 +24,8 @@ try {
 indexMarkdown += `\n\n## blog\n\n`;
 
 const postsDir = path.resolve("posts");
+const postEntries = [];
+
 for (const file of await fs.readdir(postsDir)) {
     if (path.extname(file) !== ".md") continue;
 
@@ -57,8 +59,6 @@ for (const file of await fs.readdir(postsDir)) {
         hour12: false
     }).format(date);
 
-    await fs.writeFile(outputFilePath, renderMarkdownToHTML(`# ${metadata.title}\nDate: ${formattedDate}\n${content}`));
-
     const trimmedContent = content.trim();
     let preview = trimmedContent.split("\n\n").slice(0, 2).join("\n\n").trim();
     if (preview.split(/\s+/).length > 500) {
@@ -69,18 +69,41 @@ for (const file of await fs.readdir(postsDir)) {
         preview = preview.replace(/\.*$/, "...");
     }
 
-    indexMarkdown += `\n
+    await fs.writeFile(
+        outputFilePath,
+        renderMarkdownToHTML(`# ${metadata.title}\nDate: ${formattedDate}\n${content}`, {
+            title: metadata.title,
+            description: preview,
+            siteName: "emily.md"
+        })
+    );
+
+    postEntries.push([
+        metadata.date,
+        `
 ### ${metadata.title}
 Date: ${formattedDate}
 
 ${preview}
 
-[Read more](/${outputFileName})`;
+[Read more](/${outputFileName})`
+    ]);
 
     console.log(`${file} -> ${path.relative(process.cwd(), outputFilePath)}`);
 }
 
-await fs.writeFile(path.join(distDir, "index.html"), renderMarkdownToHTML(indexMarkdown));
+postEntries.sort((a, b) => parseInt(b[0]) - parseInt(a[0]));
+
+indexMarkdown += postEntries.map(v => v[1]).join("\n");
+
+await fs.writeFile(
+    path.join(distDir, "index.html"),
+    renderMarkdownToHTML(indexMarkdown, {
+        title: "emily",
+        description: "beating it into your godforsaken skull",
+        siteName: "emily.md"
+    })
+);
 
 function parseFrontmatter(content: string) {
     const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);

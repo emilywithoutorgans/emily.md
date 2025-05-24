@@ -21,10 +21,33 @@ const footer = `<script>MathJax = { tex: { inlineMath: [["$", "$"]], displayMath
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>${bottom}</style>`;
 
-export function renderMarkdownInline(markdown: string): string {
+function renderMarkdownInline(markdown: string): string {
     return marked.parse(markdown, { async: false });
 }
 
-export function renderMarkdownToHTML(markdown: string): string {
-    return `${header}\n${renderMarkdownInline(markdown)}\n${footer}`;
+interface RenderMarkdownToHTMLOptions {
+    title?: string;
+    description?: string;
+    siteName?: string;
+}
+
+export function renderMarkdownToHTML(markdown: string, options: RenderMarkdownToHTMLOptions = {}): string {
+    let head = `<meta charset="utf-8">`;
+
+    if (options.title) {
+        head += `<meta content="${options.title}" property="og:title">`;
+    }
+
+    if (options.description) {
+        head += `<meta content="${options.description}" property="og:description">`;
+    }
+
+    if (options.siteName) {
+        head += `<meta content="${options.siteName}" property="og:site_name">`;
+        head += `<meta name="theme-color" content="#dddddd">`;
+    }
+
+    return `<!DOCTYPE html><html><head>${head}</head><body>${header}\n${renderMarkdownInline(
+        markdown
+    )}\n${footer}</body></html>`;
 }
