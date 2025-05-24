@@ -31,19 +31,21 @@ interface RenderMarkdownToHTMLOptions {
     siteName?: string;
 }
 
+const escape = (str: string) => str.replace(/"/g, "&quot;");
+
 export function renderMarkdownToHTML(markdown: string, options: RenderMarkdownToHTMLOptions = {}): string {
     let head = `<meta charset="utf-8">`;
 
     if (options.title) {
-        head += `<meta content="${options.title}" property="og:title">`;
+        head += `<meta content="${escape(options.title)}" property="og:title">`;
     }
 
     if (options.description) {
-        head += `<meta content="${options.description}" property="og:description">`;
+        head += `<meta content="${escape(options.description)}" property="og:description">`;
     }
 
     if (options.siteName) {
-        head += `<meta content="${options.siteName}" property="og:site_name">`;
+        head += `<meta content="${escape(options.siteName)}" property="og:site_name">`;
         head += `<meta name="theme-color" content="#dddddd">`;
     }
 
