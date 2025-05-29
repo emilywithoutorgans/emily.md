@@ -8,7 +8,8 @@ await fs.mkdir(distDir, { recursive: true });
 let indexMarkdown = `# notes`;
 
 const markdownDir = path.resolve("markdown");
-for (const file of await fs.readdir(markdownDir, { recursive: true })) {
+const files = await fs.readdir(markdownDir, { recursive: true }).then(f => f.sort((a, b) => a.localeCompare(b)));
+for (const file of files) {
     if (path.extname(file) !== ".md") continue;
 
     const filePath = path.join(markdownDir, file);
