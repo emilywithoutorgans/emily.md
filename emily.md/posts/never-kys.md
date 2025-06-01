@@ -3,7 +3,6 @@ title: "never kill yourself"
 date: 1748754186
 ---
 
-
 This was the title of [a Substack article](https://roselyddon.substack.com/p/never-kill-yourself) I saw linked in a Discord thread a few days ago. It was presented as "a really good article about how any legitimacy given to suicide harms potentially suicidal people." Someone else called it "moving." I clicked on it with an optimistic attitude.
 
 My opinion quickly soured as I read on.

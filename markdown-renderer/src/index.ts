@@ -1,4 +1,4 @@
-import { Marked } from "marked";
+import { Marked, Token } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
 import math from "./math.js";
@@ -17,30 +17,49 @@ const marked = new Marked(
 );
 
 const header = `<style>${top}</style>`;
-const footer = `<script>MathJax = { tex: { inlineMath: [["$", "$"]], displayMath: [["$$", "$$"]], processEscapes: true } };</script>
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<style>${bottom}</style>`;
+const mathjaxScript = `<script>MathJax = { tex: { inlineMath: [["$", "$"]], displayMath: [["$$", "$$"]], processEscapes: true } };</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>`;
+const footer = `<style>${bottom}</style>`;
 
-function renderMarkdownInline(markdown: string): string {
-    return marked.parse(markdown, { async: false });
+function hasMathToken(tokens: Token[]): boolean {
+    for (const token of tokens) {
+        if (token.type === "inlineMath" || token.type === "blockMath") {
+            return true;
+        }
+        if ("tokens" in token && token.tokens && hasMathToken(token.tokens)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function renderMarkdownInline(markdown: string): { html: string; hasMath: boolean } {
+    const tokens = marked.lexer(markdown);
+    return {
+        html: marked.parser(tokens),
+        hasMath: hasMathToken(tokens)
+    };
 }
 
 interface RenderMarkdownToHTMLOptions {
     title?: string;
     description?: string;
     siteName?: string;
+    lang?: string;
 }
 
 const escape = (str: string) => str.replace(/"/g, "&quot;");
 
 export function renderMarkdownToHTML(markdown: string, options: RenderMarkdownToHTMLOptions = {}): string {
-    let head = `<meta charset="utf-8">`;
+    let head = `<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">`;
 
     if (options.title) {
+        head += `<title>${options.title}</title>`;
         head += `<meta content="${escape(options.title)}" property="og:title">`;
     }
 
     if (options.description) {
+        head += `<meta name="description" content="${escape(options.description)}">`;
         head += `<meta content="${escape(options.description)}" property="og:description">`;
     }
 
@@ -49,7 +68,10 @@ export function renderMarkdownToHTML(markdown: string, options: RenderMarkdownTo
         head += `<meta name="theme-color" content="#dddddd">`;
     }
 
-    return `<!DOCTYPE html><html><head>${head}</head><body>${header}\n${renderMarkdownInline(
-        markdown
-    )}\n${footer}</body></html>`;
+    const { html, hasMath } = renderMarkdownInline(markdown);
+    const mathjaxContent = hasMath ? mathjaxScript : "";
+
+    return `<!DOCTYPE html><html lang="${
+        options.lang || "en"
+    }"><head>${head}</head><body>${header}${html}${footer}${mathjaxContent}</body></html>`;
 }
