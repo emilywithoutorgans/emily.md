@@ -46,6 +46,7 @@ interface RenderMarkdownToHTMLOptions {
     description?: string;
     siteName?: string;
     lang?: string;
+    rss?: boolean;
 }
 
 const escape = (str: string) => str.replace(/"/g, "&quot;");
@@ -66,6 +67,10 @@ export function renderMarkdownToHTML(markdown: string, options: RenderMarkdownTo
     if (options.siteName) {
         head += `<meta content="${escape(options.siteName)}" property="og:site_name">`;
         head += `<meta name="theme-color" content="#dddddd">`;
+    }
+
+    if (options.rss) {
+        head += `<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />`;
     }
 
     const { html, hasMath } = renderMarkdownInline(markdown);

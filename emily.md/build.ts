@@ -3,10 +3,18 @@ import { execSync } from "child_process";
 import path from "path";
 import { renderMarkdownToHTML } from "@emily/markdown-renderer";
 
+const exec = (cmd: string) => execSync(cmd).toString().trim();
+const lastmod = (file: string) => exec(`git log -1 --format="%ad" --date=short -- ${file}`);
+
 const distDir = path.resolve("dist");
 await fs.mkdir(distDir, { recursive: true });
+await fs.copyFile("rss.png", path.join(distDir, "rss.png"));
+await fs.copyFile("robots.txt", path.join(distDir, "robots.txt"));
+
+const pages: { url: string, date: string }[] = [];
 
 let indexMarkdown = await fs.readFile("index.md", "utf-8");
+pages.push({ url: "/", date: new Date().toISOString().split('T')[0] });
 
 const formattedDate = new Intl.DateTimeFormat("en-US", {
     month: "long",
@@ -17,11 +25,11 @@ const formattedDate = new Intl.DateTimeFormat("en-US", {
 indexMarkdown += `\n\nLast updated: ${formattedDate} `;
 
 try {
-    const commitHash = execSync("git rev-parse --short HEAD").toString().trim();
+    const commitHash = exec("git rev-parse --short HEAD");
     indexMarkdown += `<br>Last commit: [\`${commitHash}\`](https://github.com/emilywithoutorgans/emily.md)`;
 } catch {}
 
-indexMarkdown += `\n\n## blog\n\n`;
+indexMarkdown += `\n\n## blog [![rss](/rss.png)](/rss.xml)\n\n`;
 
 const postsDir = path.resolve("posts");
 const postEntries = [];
@@ -30,11 +38,8 @@ for (const file of await fs.readdir(postsDir)) {
     if (path.extname(file) !== ".md") continue;
 
     const filePath = path.join(postsDir, file);
-    const outputFileName = `${path.basename(file, ".md")}.html`;
-    const outputFilePath = path.join(distDir, outputFileName + ".html"); // double .html to fix route matching
-
     let fileContent = await fs.readFile(filePath, "utf-8");
-    let { content, metadata } = parseFrontmatter(fileContent);
+    const { content, metadata } = parseFrontmatter(fileContent);
 
     // add unix timestamp if needed
     if (!metadata.date) {
@@ -47,6 +52,19 @@ for (const file of await fs.readdir(postsDir)) {
         await fs.writeFile(filePath, fileContent);
         metadata.date = timestamp.toString();
     }
+
+    postEntries.push({ content, metadata, file });
+}
+
+postEntries.sort((a, b) => parseInt(b.metadata.date) - parseInt(a.metadata.date));
+
+const rssItems = [];
+for (const post of postEntries) {
+    const { content, metadata, file } = post;
+    const moddate = lastmod(path.join("posts", file));
+
+    const outputFileName = `${path.basename(file, ".md")}.html`;
+    const outputFilePath = path.join(distDir, outputFileName + ".html"); // double .html to fix route matching
 
     const date = new Date(parseInt(metadata.date) * 1000);
     const formattedDate = new Intl.DateTimeFormat("en-US", {
@@ -74,35 +92,63 @@ for (const file of await fs.readdir(postsDir)) {
         renderMarkdownToHTML(`# ${metadata.title}\nDate: ${formattedDate}\n${content}`, {
             title: metadata.title,
             description: preview,
-            siteName: "emily.md"
+            siteName: "emily.md",
+            rss: true
         })
     );
 
-    postEntries.push([
-        metadata.date,
-        `
+    pages.push({ url: outputFileName, date: moddate });
+
+    indexMarkdown += `
 ### ${metadata.title}
 Date: ${formattedDate}
 
 ${preview}
 
-[Read more](/${outputFileName})`
-    ]);
+[Read more](/${outputFileName})`;
+
+    rssItems.push(`  <item>
+    <title>${metadata.title}</title>
+    <link>https://emily.md/${outputFileName}</link>
+    <guid>https://emily.md/${outputFileName}</guid>
+    <pubDate>${date.toUTCString()}</pubDate>
+    <description><![CDATA[${preview}]]></description>
+  </item>`);
 
     console.log(`${file} -> ${path.relative(process.cwd(), outputFilePath)}`);
 }
 
-postEntries.sort((a, b) => parseInt(b[0]) - parseInt(a[0]));
+const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>emily.md</title>
+    <link>https://emily.md</link>
+    <description>this is the water</description>
+    <language>en-us</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <atom:link href="https://emily.md/rss.xml" rel="self" type="application/rss+xml" />
+${rssItems}
+  </channel>
+</rss>`;
 
-indexMarkdown += postEntries.map(v => v[1]).join("\n");
+await fs.writeFile(path.join(distDir, "rss.xml"), rssFeed);
 
 await fs.writeFile(
     path.join(distDir, "index.html"),
     renderMarkdownToHTML(indexMarkdown, {
         title: "emily",
-        description: "beating it into your godforsaken skull",
-        siteName: "emily.md"
+        description: "this is the water",
+        siteName: "emily.md",
+        rss: true
     })
+);
+
+await fs.writeFile(
+    path.join(distDir, "sitemap.xml"),
+    `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${pages.map(page => `<url><loc>${new URL(page.url, "https://emily.md")}</loc><lastmod>${page.date}</lastmod></url>`).join("\n")}
+</urlset>`
 );
 
 function parseFrontmatter(content: string) {

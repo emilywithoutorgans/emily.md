@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://emily.md/sitemap.xml
